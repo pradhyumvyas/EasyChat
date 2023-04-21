@@ -9,10 +9,12 @@ io.on("connection",(socket)=>{
 
     socket.on("EasyChat", (payload) =>{
         console.log("Payload ", payload);
-        io.emit("EasyChat ", payload)
+        io.emit("EasyChat", payload)
     })
 })
 
 
 // app.listen(5000, ()=> console.log("Server is active..."));
-server.listen(5000, ()=>console.log("Server is listing at 5000..."));
+server.listen(5000, ()=>{
+    console.log("Server is listing at 5000...")
+})
