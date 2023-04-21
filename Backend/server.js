@@ -2,7 +2,14 @@ const app = require('express')();
 
 const server = require('http').createServer(app);
 
-const io = require('server.io')(server,{});
+const io = require('socket.io')(server,{
+    cors: {
+        origin: "*",
+        // methods:['GET', "POST"],
+        // allowedHeaders: ["my-custom-header"],
+        // credentials: true
+      }
+});
 
 io.on("connection",(socket)=>{
     console.log("Socket ", socket);
@@ -10,10 +17,12 @@ io.on("connection",(socket)=>{
 
     socket.on("EasyChat", (payload) =>{
         console.log("Payload ", payload);
-        io.emit("EasyChat ", payload)
-    })
-})
+        io.emit("EasyChat", payload);
+    });
+});
 
 
 // app.listen(5000, ()=> console.log("Server is active..."));
-server.listen(5000, ()=>console.log("Server is listing at 5000..."))
+server.listen(5000, ()=>{
+    console.log("Server is listing at 5000...")
+});
