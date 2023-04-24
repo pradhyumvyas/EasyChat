@@ -19,7 +19,7 @@
 ## Installation
 
 1. Download the application from the provided link
-2. Install the application on each device that will be used for chatting
+2. Install the application in one device and you can access through ip address of that machine where server is running
 3. Connect each device to the same network
 
 ## Usage
